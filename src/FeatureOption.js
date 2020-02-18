@@ -9,8 +9,6 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     currency: 'USD'
   });
 
-console.log('hello')
-
 class FeatureOption extends Component {
   render() {
     return (
@@ -20,11 +18,13 @@ class FeatureOption extends Component {
                 id={this.props.id}
                 className="feature__option"
                 name={slugify(this.props.featureOption.name)}
+                // Figure out how this part works to make the event handler work properly
                 checked={this.props.featureOption.name === this.props.selectedFeatures[this.props.featureOption.name]}
-                onChange={e => this.props.updateFeature(this.props.featureOption, e.target.value)}
+                //Currently this.props.featureOption is the whole object and value is 'on' 
+                onChange={e => this.props.updateFeature(this.props.featureName, this.props.featureOption)}
             />
             <label htmlFor={this.props.id} className="feature__label">
-            {this.props.featureOption.name} ({USCurrencyFormat.format(this.props.featureOption.cost)})
+              {this.props.featureOption.name} ({USCurrencyFormat.format(this.props.featureOption.cost)})
             </label>
         </div>
         );

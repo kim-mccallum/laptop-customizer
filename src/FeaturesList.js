@@ -11,8 +11,7 @@ class FeaturesList extends Component {
         return(
             <Feature 
                 id={featureHash}
-                // change this name so that it's clearly an array
-                feature = {this.props.features[feature]}
+                featureArr = {this.props.features[feature]}
                 selectedFeatures={this.props.selectedFeatures}
                 updateFeature = {this.props.updateFeature}
                 featureName = {feature}

@@ -8,16 +8,17 @@ class Feature extends Component {
   render() {
     //   Map over options, call FeatureOption passing key, state and callback props
 
-    const options = this.props.feature.map((item, idx) => {
+    const options = this.props.featureArr.map((item, idx) => {
         const itemHash = slugify(JSON.stringify(item));
+        // console.log(this.props.selectedFeatures)
         return(
             <FeatureOption 
                 id={itemHash}
-                featureOption = {this.props.feature[idx]}
+                featureOption = {this.props.featureArr[idx]}
                 selectedFeatures={this.props.selectedFeatures}
                 updateFeature = {this.props.updateFeature}  
-                // trying to fix error -Warning: Each child in a list should have a unique "key" prop
-                key={itemHash}          
+                key={itemHash}    
+                featureName={this.props.featureName}
             />
         )
     });
